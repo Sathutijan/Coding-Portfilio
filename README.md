@@ -1,6 +1,6 @@
 # Coding-Portfilio
 
-👋Hello! I'm a passionate high school student with a strong interest in the dynamic world of computer science,
+👋Hello! I'm a passionate grade 12 student with a strong interest in the dynamic world of computer science,
 particularly focused on the exciting realm of cybersecurity. With a solid foundation in programming languages like JavaScript,
 Python, C++, and HTML, I am eager to contribute my skills and learn more about securing digital landscapes.
 
