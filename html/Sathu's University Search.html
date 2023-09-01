@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Sathu's University Program Search</title>
+    
+    <style>
+        /* Add CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        form {
+            display: flex;
+            gap: 1rem;
+        }
+        label {
+            flex: 1;
+        }
+        input[type="text"] {
+            flex: 3;
+            padding: 0.5rem;
+        }
+        button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Sathu's University Program Search</h1>
+    </header>
+    
+    <main>
+        <section>
+            <h2>Search Programs</h2>
+            <form id="searchForm">
+                <label for="search">Search by Program:</label>
+                <input type="text" id="search" name="search" placeholder="Enter program name">
+                <button type="submit">Search</button>
+            </form>
+        </section>
+        
+        <section>
+            <h2>Search Results</h2>
+            <ul id="resultsList">
+                <!-- Search results will be added here dynamically -->
+            </ul>
+        </section>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 University Program Search</p>
+    </footer>
+
+    <script>
+        // JavaScript code for handling the search form submission
+        document.getElementById('searchForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const searchTerm = document.getElementById('search').value.toLowerCase();
+            const resultsList = document.getElementById('resultsList');
+            resultsList.innerHTML = ''; // Clear previous results
+
+            
+            const programs = [
+                { name: 'Computer Science', description: 'A program that focuses on computer theory, programming, and software development.', duration: '4 years' },
+                { name: 'Business Administration', description: 'A program that covers various aspects of business management and leadership.', duration: '3 years' },
+                {
+                        name: 'Electrical Engineering',
+                        description: 'A program that covers the design, development, and maintenance of electrical systems.',
+                        duration: '4 years'
+                    },
+                    {
+                        name: 'Psychology',
+                        description: 'A program that explores human behavior, cognition, and mental processes.',
+                        duration: '4 years'
+                    },
+                    {
+                        name: 'Nursing',
+                        description: 'A program that trains students to become registered nurses and provide healthcare.',
+                        duration: '4 years'
+                    },
+                    {
+                        name: 'Mechanical Engineering',
+                        description: 'A program that focuses on the design and production of mechanical systems and devices.',
+                        duration: '4 years'
+                    },
+                    {
+                        name: 'English Literature',
+                        description: 'A program that studies literary works, including novels, poetry, and drama.',
+                        duration: '3 years'
+                    },
+                    {
+                           "name": "Environmental Science",
+                           "description": "A program that studies the natural environment and its interactions with human society.",
+                           "duration": "4 years"
+
+                       },
+                       {
+                           "name": "Civil Engineering",
+                           "description": "A program that focuses on the design and construction of infrastructure and public works.",
+                           "duration": "4 years"
+                       },
+                       {
+                           "name": "Biomedical Engineering",
+                           "description": "A program that combines principles of engineering and biology for medical applications.",
+                           "duration": "4 years"
+                       },
+                       {
+                           "name": "Economics",
+                           "description": "A program that analyzes the production, distribution, and consumption of goods and services.",
+                           "duration": "3 years"
+                       },
+                       {
+                           "name": "Art History",
+                           "description": "A program that examines the history of visual arts and their cultural significance.",
+                           "duration": "3 years"
+                       {
+                           "name": "Chemical Engineering",
+                           "description": "A program that focuses on chemical processes and their applications in industry.",
+                           "duration": "4 years"
+                       },
+                       {
+                           "name": "Music Performance",
+                           "description": "A program that offers advanced training in musical performance and theory.",
+                           "duration": "4 years"
+                       },
+                       {
+                           "name": "Physics",
+                           "description": "A program that explores the fundamental laws of the physical universe.",
+                           "duration": "4 years"
+                       },
+                       {
+                           "name": "Political Science",
+                           "description": "A program that studies government systems, political behavior, and international relations.",
+                           "duration": "3 years"
+                       },
+                       {
+                           "name": "Mathematics",
+                           "description": "A program that delves into mathematical theories and problem-solving techniques.",
+                           "duration": "4 years"                       },
+                       {
+                           "name": "Environmental Engineering",
+                           "description": "A program that applies engineering principles to address environmental challenges.",
+                           "duration": "4 years"
+                       },
+                       {
+                           "name": "Linguistics",
+                           "description": "A program that examines language structure, evolution, and usage across cultures.",
+                           "duration": "3 years"
+                       },
+                       {
+                           "name": "Sociology",
+                           "description": "A program that explores societal structures, human behavior, and social change.",
+                           "duration": "3 years"
+                       },
+                       {
+                           "name": "Graphic Design",
+                           "description": "A program that focuses on visual communication and digital design skills.",
+                           "duration": "3 years"
+                       },
+                       {
+                           "name": "Astronomy",
+                           "description": "A program that studies celestial objects, galaxies, and the universe's origins.",
+                           "duration": "4 years"
+                       }
+                
+            ];
+
+            // Filter programs based on the search term
+            const filteredPrograms = programs.filter(program => program.name.toLowerCase().includes(searchTerm));
+
+            // Display the filtered results
+            filteredPrograms.forEach(program => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <h3>${program.name}</h3>
+                    <p>Description: ${program.description}</p>
+                    <p>Duration: ${program.duration}</p>
+                `;
+                resultsList.appendChild(li);
+            });
+        });
+    </script>
+</body>
+</html>
